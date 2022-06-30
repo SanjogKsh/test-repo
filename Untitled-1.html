@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+        <script>
+            function show(){
+                var valid=document.getElementById("name");
+                var validname=/^[a-zA-Z\-.\s]*$/;
+                if(!valid.value.match(validname)){
+                    alert("Enter characters only!");
+                }else{
+                document.getElementById("display1").innerHTML="Name: "+document.getElementById("name").value;
+                document.getElementById("display2").innerHTML="Track: "+document.getElementById("track").value;
+                //document.getElementById("display3").innerHTML="Age: "+document.getElementById("age").value;
+                document.getElementById("display4").innerHTML="Gender: "+document.querySelector('input[name="Gender"]:checked').value;
+                var age=document.getElementById("age").value;
+                if (age>=25){
+                    var ele1=document.getElementById("div2");
+                    ele1.style.backgroundColor="red";
+                    document.getElementById("display3").innerHTML="Age: "+age;
+                }else{
+                    var ele2=document.getElementById("div2");
+                    ele2.style.backgroundColor="green";
+                    document.getElementById("display3").innerHTML="Age: "+age;
+                }
+            }
+
+            }
+        </script>
+    </head>
+    <body >
+        <div onsubmit="return false;" style="background-color: cyan;border: 1px solid;width: 300px;height: 250px;" >
+        <h2 style="text-align:center">Personal Details Form</h2>
+        <p><label>Name:</label>
+        <!--<input type="text" id="name" title="Only Letters" onkeypress="return ((event.charCode>=65 && event.charCode<=90)||(event.charCode>=97 && event.charCode<=122)||(event.charCode==32))" required></p>-->
+        <!--<input type="text" id="name" title="Only Letters" value="Type Letters Only" onkeydown="return alphaOnly(event);" onblur="if(this.value==''){this.value='Type Letters Only';}" onfocus="if (this.value=='Type Letters only'){this.value=''}" required></p>-->
+        <input type="text" id="name" title="Only Letters" required></p>
+        <p><label>Track:</label>
+        <input type="text" id="track"></p>
+        <p><label>Age:</label>
+        <input type="number" id="age" min="18" max="30"></p>
+        <p><label>Gender:</label>
+        <input type="radio" id="gender" name="Gender" value="Male">Male
+        <input type="radio" id="gender" name="Gender" value="Female">Female
+        <input type="radio" id="gender" name="Gender" value="Other">Other</p>
+        <button style="margin-inline-start:100px;border-radius: 7px;" type="submit" onclick="show()">Submit</button>
+        </div>
+        <label><br> </label>
+        <div id="div2" style="background-color: rgb(236, 178, 183);border: 1px solid;width: 300px;height: 150px;" >
+        <p id="display1">Name: </p>
+        <p id="display2">Track: </p>
+        <p id="display3">Age: </p>
+        <p id="display4">Gender: </p>
+        </div><br>
+        <table style="border: 1px solid black ; background-color: rgb(253, 251, 124); padding: 15px;">
+            <tr style="color:white; background-color:rgb(110, 110, 216);text-decoration:underline;">
+                <th style="border:1px solid ;">Name</th><th style="border:1px solid ;">Track</th><th style="border:1px solid ;">Age</th><th style="border:1px solid ;">Gender</th></tr>
+            <tr><th>Ramesh</th><th>Digital</th><th>23</th><th>Male</th></tr>
+            <tr><th>Suresh</th><th>Java</th><th>24</th><th>Male</th></tr>
+            <tr><th>Anita</th><th>Salesforce</th><th>22</th><th>Female</th></tr>
+        </table>
+
+    </body>
+</html>
